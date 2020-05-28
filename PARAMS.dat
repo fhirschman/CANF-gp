@@ -1,0 +1,80 @@
+###################################
+# Parameter file. 
+# Comments beginning with '#' are ignored. Variables are separated by newlines, 
+# elements are separated by a whitespace. Keep the current format, introducing 
+# newlines, commas, etc. will most likely break the program.
+#
+# We define a complex polynomial like this:
+# f(z) = c_0*z^(b_0) + c_1*z^(b_1) + c_2*z^(b_2) + ... + c_(POLY_N_TERMS-1)*z^(b_(POLY_N_TERMS-1))
+# with c_i, b_i being a real doubles, and z being complex double.
+###################################
+#
+# MODE (int, 0: given polynomial, 1: random polynomial)
+1
+#
+# REP_MODE (int, 0: interations, 1: roots (basins of attraction).)
+0
+# N_POLY_TERMS (For MODE 0 ONLY: integer, number of terms of complex polynomial, put number of coeffs here!)
+3
+#
+# COEFFS (For MODE 0 ONLY: double, coefficients c_i of complex polynomial)
+-936.5580887238299 435.1474141865727 -270.8454822520006 0 0 0 0
+#
+# EXPONS (For MODE 0 ONLY: double, exponents b_i of complex polynomial)
+0 3.268303375243736 -8.289007300190073
+#
+# FRAC_DER_MODE (int, 0: Use normal fractional derivatives, 1: Use Riemann–Liouville fractional derivatives)
+0
+#
+# ALPHA_FRAC_DER (For FRAC_DER_MODE 1 ONLY: double, use alpha-order Riemann–Liouville fractional derivatives)
+1.01
+#
+# COLOR CODE (For MODE 0 ONLY: integer < 52 )
+28
+#
+# ACCUARACY (double, convergence criteria) 
+0.0000001
+#
+# MAX_ITERATIONS (integer, when to stop Newton method)
+400
+#
+# N_X (integer, pixels in x-direction, choose 2^integer ! )
+256
+#
+# N_Y (integer, pixels in y-direction, choose 2^integer ! )
+256
+#
+# FOCUS POINT (doubles, center of complex plane, first: real, second: imaginary)
+0 0 
+#
+# INTERVALL LENGTH (double, range of directions in the complex planes.)
+10.0
+#
+# SAVE DATA FILE (bool, save iteration matrix and picture after every calculation, very slow!)
+0
+#
+# BLOCK SIZE (int, GPU_MODE only, tweak for better performance, choose 2^integer !)
+128
+#
+# MAX RANDOM N TERMS (For MODE 1 ONLY: integer, number of terms in the random polynomial)
+7
+#
+# RAND_EXPONENT_RANGE (For MODE 1 ONLY: double, maximum range of the exponents b_i of random polynomial)
+9.4
+#
+# RAND_COEFF_RANGE (For MODE 1 ONLY: double, maximum range of the coefficients c_i of random polynomial 
+# 5000 is good for normal derivatives, 1 for fractional derivatives)
+4000
+#
+# PROD_SERIES, AUTO_ZOOM, ALPHA_VAR (bools, produce series of N_FRAMES_SERIES frames with zooming (if enabled, with factor ZOOM_FAC) and variable ALPHA_FRAC_DER between limits specified in ALPHA_SERIES_LIMITS)
+0 0 1 
+#
+# N_FRAMES_SERIES (For PROD_SERIES 1 ONLY: int, number of frames to produce for animation of adjusting ALPHA_FRAC_DER)
+400
+#
+# ALPHA_SERIES_LIMITS (For PROD_SERIES 1 and ALPHA_VAR 1 ONLY: doubles, upper and lower limit of ALPHA_FRAC_DER to linearly go trough with N_FRAMES_SERIES frames)
+0.47 2.0
+#
+# ZOOM_FAC (For PROD_SERIES 1 and AUTO_ZOOM 1 ONLY: double, factor to determine zooming into the scene each frame)
+0.96
+#
