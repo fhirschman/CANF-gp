@@ -215,7 +215,12 @@ void load_params(){
 					}
 					break; }
 				case 13: {
-					INTERVAL_LENGTH = stof(word);
+					if(word_counter==1){
+						INTERVAL_LENGTH_X = stof(word);
+					}
+					if(word_counter==2){
+						INTERVAL_LENGTH_Y = stof(word);
+					}
 					break; }
 				case 14: {
 					SAVE_DATA_FILE = stoi(word);

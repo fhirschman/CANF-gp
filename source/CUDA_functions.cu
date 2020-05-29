@@ -160,6 +160,7 @@ void setup_GPU(){
 	cnumber_matrix_GPU = new cuDoubleComplex[N_X*N_Y];
 	iter_matrix_GPU = new int[N_X*N_Y];
 	roots_matrix_GPU = new cuDoubleComplex[N_X*N_Y];
+	// cout << "\n N_BLOCKS " << numBlocks << " SIZE " << BLOCK_SIZE << endl;
 	cudaMallocManaged(&POLY_COEFFS_GPU, (POLY_N_TERMS)*sizeof(double));
 	cudaMallocManaged(&POLY_EXPONS_GPU, (POLY_N_TERMS)*sizeof(double));
 	cudaMallocManaged(&iter_matrix_GPU, (N_X*N_Y)*sizeof(int));
@@ -206,7 +207,7 @@ void getRootsMatrixGPU(vector<vector<float>>& rootsImage){
 		vector<float> row;
 		for(int j=0; j<N_X; j++){
 			complex<double> root = {cuCreal(roots_matrix_GPU[j+i*N_X]),cuCimag(roots_matrix_GPU[j+i*N_X])};
-			if(abs(real(root)) > 10*INTERVAL_LENGTH || abs(imag(root)) > 10*INTERVAL_LENGTH ){
+			if(abs(real(root)) > 10*INTERVAL_LENGTH_X || abs(imag(root)) > 10*INTERVAL_LENGTH_Y ){
 				root = {0,0};
 			} 
 			if(i==0 && j==0){

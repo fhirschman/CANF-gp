@@ -63,8 +63,8 @@ int main(void)
 	#endif
 
 	// Set up complex plane limits
-	lower_left = { (-INTERVAL_LENGTH)*0.5 + START_X, (-INTERVAL_LENGTH)*0.5 +START_Y};
-	upper_right ={ ( INTERVAL_LENGTH)*0.5 + START_X, ( INTERVAL_LENGTH)*0.5 +START_Y};
+	lower_left = { (-INTERVAL_LENGTH_X)*0.5 + START_X, (-INTERVAL_LENGTH_Y)*0.5 +START_Y};
+	upper_right ={ ( INTERVAL_LENGTH_X)*0.5 + START_X, ( INTERVAL_LENGTH_Y)*0.5 +START_Y};
 
 
 	// Interactive mode, no series of frames get produced
@@ -82,8 +82,8 @@ int main(void)
 
 				// If coming out of zoom mode, reset boundaries of complex plane
 				if(RECENTLY_DEACTIVATED_ZOOM_MODE){
-					lower_left = { (-INTERVAL_LENGTH)*0.5 + START_X, (-INTERVAL_LENGTH)*0.5 +START_Y};
-					upper_right ={ ( INTERVAL_LENGTH)*0.5 + START_X, ( INTERVAL_LENGTH)*0.5 +START_Y};
+					lower_left = { (-INTERVAL_LENGTH_X)*0.5 + START_X, (-INTERVAL_LENGTH_Y)*0.5 +START_Y};
+					upper_right ={ ( INTERVAL_LENGTH_X)*0.5 + START_X, ( INTERVAL_LENGTH_Y)*0.5 +START_Y};
 					RECENTLY_DEACTIVATED_ZOOM_MODE=0;
 				}
 			}
@@ -167,7 +167,7 @@ int main(void)
 				// Act, if limits have changed
 				if(limitsChanged()){
 					cout << endl << " NEW LIMITS: " << x_min << " " << x_max << " " << y_min <<" " << y_max << endl;
-
+					cout << endl << " NEW LIMITS: " << x_min << " " << x_max << " " << y_min <<" " << y_max << endl;
 					// For translation in x-direction
 					if(x_max>x_max_SAVE || x_min<x_min_SAVE ){
 
@@ -202,6 +202,7 @@ int main(void)
 						CONTINUE_TO_NEXT_POLY=0;
 					}
 					cout << " INTERVAL LENGTH " <<  real(upper_right) - real(lower_left) << " " << imag(upper_right) - imag(lower_left) << endl;
+					cout << " NEW FOCUS POINT: " << real(upper_right) - (real(upper_right) - real(lower_left))/2.0 << " " << imag(upper_right) - (imag(upper_right) - imag(lower_left))/2.0 << endl;
 					saveLimits();
 				}
 
@@ -251,8 +252,8 @@ int main(void)
 			cout << lower_left << " " << upper_right << endl;
 
 			if(AUTO_ZOOM==1){
-				lower_left = { (-INTERVAL_LENGTH*pow(ZOOM_FAC,frameInd))*0.5  + START_X ,(-INTERVAL_LENGTH*pow(ZOOM_FAC,frameInd))*0.5 + START_Y};
-				upper_right ={ ( INTERVAL_LENGTH*pow(ZOOM_FAC,frameInd))*0.5  + START_X ,( INTERVAL_LENGTH*pow(ZOOM_FAC,frameInd))*0.5 + START_Y};
+				lower_left = { (-INTERVAL_LENGTH_X*pow(ZOOM_FAC,frameInd))*0.5  + START_X ,(-INTERVAL_LENGTH_Y*pow(ZOOM_FAC,frameInd))*0.5 + START_Y};
+				upper_right ={ ( INTERVAL_LENGTH_X*pow(ZOOM_FAC,frameInd))*0.5  + START_X ,( INTERVAL_LENGTH_Y*pow(ZOOM_FAC,frameInd))*0.5 + START_Y};
 				cout << " Zoom Fac " << pow(ZOOM_FAC,frameInd) << endl;
 			} 
 

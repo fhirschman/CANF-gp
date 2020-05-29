@@ -127,7 +127,7 @@ void getRootsMatrix(vector<vector<float>>& rootsImage){
 		vector<float> row;
 		for(int j=0; j<N_X; j++){
 			complex<double> root = solve_cnewton_roots(cnumber_matrix[i][j], ACCURACY, N_ITER, POLY_COEFFS, POLY_N_TERMS, POLY_EXPONS);
-			if(abs(real(root)) > 10*INTERVAL_LENGTH || abs(imag(root)) > 10*INTERVAL_LENGTH ){
+			if(abs(real(root)) > 10*INTERVAL_LENGTH_X || abs(imag(root)) > 10*INTERVAL_LENGTH_Y ){
 				root = {0,0};
 			} 
 			if(i==0 && j==0){

@@ -39,16 +39,16 @@
 400
 #
 # N_X (integer, pixels in x-direction, choose 2^integer ! )
-256
+512
 #
 # N_Y (integer, pixels in y-direction, choose 2^integer ! )
-256
+512
 #
 # FOCUS POINT (doubles, center of complex plane, first: real, second: imaginary)
 0 0 
 #
-# INTERVALL LENGTH (double, range of directions in the complex planes.)
-10.0
+# INTERVAL LENGTHS (doubles, range of x (real) / y(imaginary) directions around the focus point. It's advised that you adjust the intervals to match N_X and N_Y to not get "stretched" images)
+10.0 10.0
 #
 # SAVE DATA FILE (bool, save iteration matrix and picture after every calculation, very slow!)
 0
