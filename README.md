@@ -48,7 +48,7 @@ nvcc (CUDA compiler, optional)
 For installation of the boost library execute:
 
 ```
-$ sudo apt install libboost-dev
+$ sudo apt-get install libboost-all-dev
 ```
 
 ## Compiling
