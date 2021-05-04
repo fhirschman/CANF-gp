@@ -123,7 +123,3 @@ https://github.com/dstahlke/gnuplot-iostream
 ![ex2](./examples/ex2.png)
 ![ex3](./examples/ex3.png)
 ![ex4](./examples/ex4.png)
-
-
-## Help pay my coffee bill
-3MGf5jHST2CXbvYSCEM8utZjQaQx1kugAm
